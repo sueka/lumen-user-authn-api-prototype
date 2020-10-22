@@ -23,7 +23,22 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+// TODO: コメントアウトを解除するか、可能なら `bind` の呼び出しを削除する。
+$app->bind('url', function () /* use ($app) */ {
+    // return new Laravel\Lumen\Routing\UrlGenerator($app);
+
+    class UrlGenerator {
+        public function to($path) {
+            return config('app.url') . $path;
+        }
+    }
+
+    return new UrlGenerator;
+});
+
+$app->withFacades(TRUE, [
+    Laravel\Socialite\Facades\Socialite::class => 'Socialite',
+]);
 
 // $app->withEloquent();
 
@@ -60,6 +75,7 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('services');
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +110,8 @@ $app->configure('app');
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+
+$app->register(Laravel\Socialite\SocialiteServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
