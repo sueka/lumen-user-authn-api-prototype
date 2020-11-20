@@ -1,4 +1,4 @@
-# lumen-user-authn-api-prototype
+# lumen-user-service-prototype
 
 ## License
 
