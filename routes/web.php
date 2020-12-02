@@ -17,3 +17,9 @@ $router->get('/', function () use ($router) {
 
 $router->get('/redirect-to-github', 'RedirectToGitHubController');
 $router->get('/handle-github-callback', 'HandleGitHubCallbackController');
+
+$router->get('/me', ['middleware' => 'auth', function () {
+    $user = Auth::user();
+
+    return $user;
+}]);
