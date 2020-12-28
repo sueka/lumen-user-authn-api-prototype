@@ -1,7 +1,7 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "name": "sueka/lumen-user-service-prototype",
+    "description": "A RESTful User Service.",
+    "keywords": ["restful", "user-service", "web-app"],
     "license": "MIT",
     "type": "project",
     "require": {
