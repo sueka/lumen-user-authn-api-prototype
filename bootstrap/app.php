@@ -40,7 +40,7 @@ $app->withFacades(TRUE, [
     Laravel\Socialite\Facades\Socialite::class => 'Socialite',
 ]);
 
-// $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------

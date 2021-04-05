@@ -15,6 +15,8 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->post('/users', 'UserController@store');
+
 $router->get('/redirect-to-github', 'RedirectToGitHubController');
 $router->get('/handle-github-callback', 'HandleGitHubCallbackController');
 
