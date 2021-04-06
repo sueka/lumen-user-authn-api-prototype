@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        return User::all(); // TODO: authz
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
