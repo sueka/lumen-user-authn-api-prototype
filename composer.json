@@ -9,7 +9,7 @@
         "doctrine/dbal": "^2.6",
         "laravel/lumen-framework": "^7.0",
         "laravel/socialite": "^5.0",
-        "tymon/jwt-auth": "^1.0"
+        "web-token/jwt-framework": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9.1",
