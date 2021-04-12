@@ -36,7 +36,7 @@ $app->bind('url', function () /* use ($app) */ {
     return new UrlGenerator;
 });
 
-$app->withFacades(TRUE, [
+$app->withFacades(true, [
     Laravel\Socialite\Facades\Socialite::class => 'Socialite',
 ]);
 
