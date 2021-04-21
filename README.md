@@ -47,7 +47,7 @@ vagrant up --provision
 
 ### XDebug
 
-To Xdebug Lusp, run `xon` and edit _/etc/php/7.4/cli/conf.d/20-xdebug.ini_ on Homestead VM from `a` to `b`:
+To Xdebug Lusp, run `xon` and edit _/etc/php/8.0/cli/conf.d/20-xdebug.ini_ on Homestead VM from `a` to `b`:
 
 ``` diff
 --- a
@@ -62,7 +62,18 @@ To Xdebug Lusp, run `xon` and edit _/etc/php/7.4/cli/conf.d/20-xdebug.ini_ on Ho
  xdebug.max_nesting_level = 512
 ```
 
-Then execute `systemctl restart php7.4-fpm.service`.
+Then execute `systemctl restart php8.0-fpm.service`.
+
+### Upgrade Homestead
+
+When you upgrade Homestead, run `composer update` and then also
+
+``` sh
+rm Homestead.yaml Vagrantfile after.sh aliases
+vendor/bin/homestead make --ip 192.168.10.10
+```
+
+And then restore `variables` in _Homestead.yaml_.
 
 ## License
 
