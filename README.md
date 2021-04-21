@@ -4,7 +4,7 @@ A RESTful User Service API and its implementation.
 
 ## How-tos
 
-To Xdebug Lusp, run `xon` and edit /etc/php/7.4/cli/conf.d/20-xdebug.ini on Homestead VM from `a` to `b`:
+To Xdebug Lusp, run `xon` and edit _/etc/php/7.4/cli/conf.d/20-xdebug.ini_ on Homestead VM from `a` to `b`:
 
 ``` diff
 --- a
@@ -19,7 +19,7 @@ To Xdebug Lusp, run `xon` and edit /etc/php/7.4/cli/conf.d/20-xdebug.ini on Home
  xdebug.max_nesting_level = 512
 ```
 
-Then execute `sudo service php7.4-fpm restart` if needed.
+Then execute `systemctl restart php7.4-fpm.service`.
 
 ## License
 
