@@ -13,7 +13,7 @@ A RESTful User Service API and its implementation.
 
 ---
 
-To start a local development environment on Homestead at _http://homestead.test_, first add the following entry to your _/etc/hosts_ or _C:\Windows\System32\drivers\etc\hosts_:
+To start a local development environment using Homestead at _http://homestead.test_, first add the following entry to your _/etc/hosts_ or _C:\Windows\System32\drivers\etc\hosts_:
 
 ```
 192.168.10.10 homestead.test
@@ -47,7 +47,7 @@ vagrant up --provision
 
 ### XDebug
 
-To Xdebug Lusp, run `xon` and edit _/etc/php/8.0/cli/conf.d/20-xdebug.ini_ on Homestead VM from `a` to `b`:
+To Xdebug Lusp, run `xon` and then edit _/etc/php/8.0/cli/conf.d/20-xdebug.ini_ from `a` to `b` on your Homestead VM:
 
 ``` diff
 --- a
