@@ -74,7 +74,6 @@ $app->singleton(
 |
 */
 
-$app->configure('app');
 $app->configure('cors');
 $app->configure('services');
 
