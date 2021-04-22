@@ -1,4 +1,4 @@
-# lumen-user-service-prototype (Lusp)
+# Lusp
 
 A RESTful User Service API and its implementation.
 

@@ -1,5 +1,5 @@
 {
-    "name": "sueka/lumen-user-service-prototype",
+    "name": "sueka/lusp",
     "description": "A RESTful User Service.",
     "keywords": ["restful", "user-service", "web-app"],
     "license": "MIT",
