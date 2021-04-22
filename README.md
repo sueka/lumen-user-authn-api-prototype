@@ -54,11 +54,11 @@ To Xdebug Lusp, run `xon` and edit _/etc/php/8.0/cli/conf.d/20-xdebug.ini_ on Ho
 +++ b
 @@ -1,5 +1,7 @@
  zend_extension=xdebug.so
- xdebug.remote_enable = 1
-+xdebug.remote_autostart = 1
- xdebug.remote_connect_back = 1
-+xdebug.remote_host = 10.0.2.2
- xdebug.remote_port = 9000
+ xdebug.mode = debug
++xdebug.start_with_request = yes
+ xdebug.discover_client_host = true
++xdebug.client_host = 10.0.2.2
+ xdebug.client_port = 9003
  xdebug.max_nesting_level = 512
 ```
 

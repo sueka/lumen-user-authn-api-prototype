@@ -8,7 +8,7 @@
       "pathMappings": {
         "/home/vagrant/code": "${workspaceFolder}"
       },
-      "port": 9000
+      "port": 9003
     }
   ]
 }
