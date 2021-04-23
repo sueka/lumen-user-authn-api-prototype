@@ -30,12 +30,15 @@ Then add lines to _Homestead.yaml_ that looks like
 
 ``` yaml
 variables:
-  - key: APP_URL
-    value: http://homestead.test
-  - key: GITHUB_CLIENT_ID
-    value: 0123456789abcdef0123
-  - key: GITHUB_CLIENT_SECRET
-    value: 0123456789abcdef0123456789abcdef01234567
+    -
+        key: APP_URL
+        value: http://homestead.test
+    -
+        key: GITHUB_CLIENT_ID
+        value: 0123456789abcdef0123
+    -
+        key: GITHUB_CLIENT_SECRET
+        value: 0123456789abcdef0123456789abcdef01234567
 ```
 
 And run finally
