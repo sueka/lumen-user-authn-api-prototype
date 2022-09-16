@@ -59,17 +59,6 @@ To Xdebug Lusp, run `xon` and then edit _/etc/php/8.0/cli/conf.d/20-xdebug.ini_ 
 
 Then execute `systemctl restart php8.1-fpm.service`.
 
-### Upgrade Homestead
-
-When you upgrade Homestead, run `composer update` and then also
-
-``` sh
-rm Homestead.yaml Vagrantfile after.sh aliases
-vendor/bin/homestead make --ip 192.168.56.56
-```
-
-And then restore `variables` in _Homestead.yaml_.
-
 ## License
 
 [CC0](./LICENSE) unless otherwise specified.
