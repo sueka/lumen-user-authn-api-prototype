@@ -16,39 +16,31 @@ A RESTful User Service API and its implementation.
 To start a local development environment using Homestead at _http://homestead.test_, first add the following entry to your _/etc/hosts_ or _C:\Windows\System32\drivers\etc\hosts_:
 
 ```
-192.168.10.10 homestead.test
+192.168.56.56	homestead.test
 ```
 
 Run the following commands to create _Homestead.yaml_:
 
 ``` sh
 composer install
-vendor/bin/homestead make --ip 192.168.10.10
+vendor/bin/homestead make --ip 192.168.56.56
 ```
 
-Then add lines to _Homestead.yaml_ that looks like
+Then ensure _.env_ have values like:
 
-``` yaml
-variables:
-    -
-        key: APP_URL
-        value: http://homestead.test
-    -
-        key: GITHUB_CLIENT_ID
-        value: 0123456789abcdef0123
-    -
-        key: GITHUB_CLIENT_SECRET
-        value: 0123456789abcdef0123456789abcdef01234567
+``` Shell
+APP_URL=http://homestead.test
+GITHUB_CLIENT_ID=0123456789abcdef0123
+GITHUB_CLIENT_SECRET=0123456789abcdef0123456789abcdef01234567
 ```
 
 And run finally
 
 ``` sh
-composer install
 vagrant up --provision
 ```
 
-### XDebug
+### Xdebug
 
 To Xdebug Lusp, run `xon` and then edit _/etc/php/8.0/cli/conf.d/20-xdebug.ini_ from `a` to `b` on your Homestead VM:
 
@@ -65,7 +57,7 @@ To Xdebug Lusp, run `xon` and then edit _/etc/php/8.0/cli/conf.d/20-xdebug.ini_ 
  xdebug.max_nesting_level = 512
 ```
 
-Then execute `systemctl restart php8.0-fpm.service`.
+Then execute `systemctl restart php8.1-fpm.service`.
 
 ### Upgrade Homestead
 
@@ -73,7 +65,7 @@ When you upgrade Homestead, run `composer update` and then also
 
 ``` sh
 rm Homestead.yaml Vagrantfile after.sh aliases
-vendor/bin/homestead make --ip 192.168.10.10
+vendor/bin/homestead make --ip 192.168.56.56
 ```
 
 And then restore `variables` in _Homestead.yaml_.

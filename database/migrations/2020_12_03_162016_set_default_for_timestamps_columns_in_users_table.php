@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class SetDefaultForTimestampsColumnsInUsersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -30,4 +30,4 @@ class SetDefaultForTimestampsColumnsInUsersTable extends Migration
         DB::statement('ALTER TABLE users ALTER COLUMN updated_at DROP DEFAULT');
         DB::statement('ALTER TABLE users ALTER COLUMN created_at DROP DEFAULT');
     }
-}
+};
