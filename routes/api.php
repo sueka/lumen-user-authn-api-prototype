@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user', [UserController::class, 'index']);
-Route::post('/user', [UserController::class, 'store']);
+Route::resource('/users', UserController::class)->only(['index', 'store']);
 
 Route::get('/redirect-to-github', RedirectToGitHubController::class);
 Route::get('/handle-github-callback', HandleGitHubCallbackController::class);
