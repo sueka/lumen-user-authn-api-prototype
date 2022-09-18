@@ -42,7 +42,7 @@ vagrant up --provision
 
 ### Xdebug
 
-To Xdebug Lusp, run `xon` and then edit _/etc/php/8.0/cli/conf.d/20-xdebug.ini_ from `a` to `b` on your Homestead VM:
+To Xdebug Lusp, run `xon` and then edit _/etc/php/8.1/cli/conf.d/20-xdebug.ini_ from `a` to `b` on your Homestead VM:
 
 ``` diff
 --- a
