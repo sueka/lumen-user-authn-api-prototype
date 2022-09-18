@@ -6,9 +6,9 @@ info:
   title: Lusp
   license:
     name: CC0 1.0 Universal
-    url: 'http://creativecommons.org/publicdomain/zero/1.0/'
+    url: 'https://creativecommons.org/publicdomain/zero/1.0/'
 servers:
-  - url: 'http://homestead.test'
+  - url: 'https://homestead.test'
 paths:
   /:
     get:

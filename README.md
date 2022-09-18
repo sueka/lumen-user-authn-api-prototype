@@ -13,7 +13,7 @@ A RESTful User Service API and its implementation.
 
 ---
 
-To start a local development environment using Homestead at _http://homestead.test_, first add the following entry to your _/etc/hosts_ or _C:\Windows\System32\drivers\etc\hosts_:
+To start a local development environment using Homestead at _https://homestead.test_, first add the following entry to your _/etc/hosts_ or _C:\Windows\System32\drivers\etc\hosts_:
 
 ```
 192.168.56.56	homestead.test
@@ -29,7 +29,7 @@ vendor/bin/homestead make --ip 192.168.56.56
 Then ensure _.env_ have values like:
 
 ``` Shell
-APP_URL=http://homestead.test
+APP_URL=https://homestead.test
 GITHUB_CLIENT_ID=0123456789abcdef0123
 GITHUB_CLIENT_SECRET=0123456789abcdef0123456789abcdef01234567
 ```
