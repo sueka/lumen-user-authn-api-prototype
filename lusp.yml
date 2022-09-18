@@ -1,0 +1,193 @@
+openapi: 3.0.3
+info:
+  description: >-
+    Laravel user service proofs of something.
+  version: 0.1.0
+  title: Lusp
+  license:
+    name: CC0 1.0 Universal
+    url: 'http://creativecommons.org/publicdomain/zero/1.0/'
+servers:
+  - url: 'http://homestead.test'
+paths:
+  /:
+    get:
+      responses:
+        '200':
+          description: Laravel framework version
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 9.30.1
+  /users:
+    get:
+      description: Lists all users.
+      responses:
+        '200':
+          description: All of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+    post:
+      description: Creates an user.
+      responses:
+        '200':
+          description: A user that has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+        '422':
+          description: Validation results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  errors:
+                    anyOf:
+                      - type: object
+                        properties:
+                          username:
+                            type: array
+                            items:
+                              type: string
+                        required:
+                          - username
+                      - type: object
+                        properties:
+                          password:
+                            type: array
+                            items:
+                              type: string
+                        required:
+                          - password
+                required:
+                  - message
+                  - errors
+        '500':
+          description: Unique violation
+  /redirect-to-github:
+    get:
+      description: Redirects you to the GitHub authentication page.
+      responses:
+        '302':
+          description: Redirection
+  /handle-github-callback:
+    get:
+      description: Handles a callback from GitHub.
+      parameters:
+        - name: code
+          in: query
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: A Socialite User object for a GitHub user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Socialite-User'
+        '401':
+          description: Unauthenticated
+  /me:
+    get:
+      description: Returns a current user. If something goes wrong, returns a 4XX when the request is an XHR request, otherwise returns a 500.
+      responses:
+        '200':
+          description: A user currently logged in
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Route ‘login’ not found
+components:
+  schemas:
+    user:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          format: int64
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        username:
+          type: string
+        email:
+          type: string
+          nullable: true
+      required:
+        - user_id
+        - created_at
+        - updated_at
+        - username
+        - email
+    Socialite-User:
+      title: Socialite User
+      type: object
+      properties:
+        id:
+          oneOf:
+            - type: string
+            - type: integer
+        nickname:
+          type: string
+        name:
+          type: string
+          nullable: true
+        email:
+          type: string
+        avatar:
+          type: string
+        user:
+          oneOf:
+            - allOf:
+              - $ref: 'https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml#/components/schemas/public-user'
+              - title: GitHub Public User # To override $ref, put this line below it.
+        token:
+          type: string
+        refreshToken:
+          type: string
+          nullable: true
+        expiresIn:
+          type: integer
+          format: int64
+          nullable: true
+        approvedScopes:
+          type: array
+          items:
+            type: string
+      required:
+        - id
+        - nickname
+        - name
+        - email
+        - avatar
+        - user
+        - token
+        - refreshToken
+        - expiresIn
+        - approvedScopes
+    Error:
+      type: object
+      properties:
+        message:
+          type: string

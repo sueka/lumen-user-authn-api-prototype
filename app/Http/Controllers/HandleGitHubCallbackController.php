@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Exception\ClientException;
 use Laravel\Socialite\Facades\Socialite;
 
 class HandleGitHubCallbackController extends Controller
@@ -14,7 +15,13 @@ class HandleGitHubCallbackController extends Controller
      */
     public function __invoke()
     {
-        $user = Socialite::driver('github')->stateless()->user();
+        try {
+            $user = Socialite::driver('github')->stateless()->user();
+        } catch (ClientException $error) {
+            $statusCode = $error->getResponse()->getStatusCode();
+
+            abort_if($statusCode === 401, $statusCode);
+        }
 
         return json_encode($user);
     }

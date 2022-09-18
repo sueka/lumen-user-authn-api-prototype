@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return app()->version();
+    return response(app()->version())
+        ->header('Content-Type', 'text/plain');
 });
