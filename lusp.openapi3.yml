@@ -1,14 +1,13 @@
 openapi: 3.0.3
 info:
-  description: >-
-    Laravel user service proofs of something.
-  version: 0.1.0
   title: Lusp
+  version: 0.1.0
+  description: Laravel user service proofs of something.
   license:
     name: CC0 1.0 Universal
-    url: 'https://creativecommons.org/publicdomain/zero/1.0/'
+    url: https://creativecommons.org/publicdomain/zero/1.0/
 servers:
-  - url: 'https://homestead.test'
+  - url: https://homestead.test
 paths:
   /:
     get:
@@ -79,7 +78,9 @@ paths:
           description: Unauthenticated
   /me:
     get:
-      description: Returns a current user. If something goes wrong, returns a 4XX when the request is an XHR request, otherwise returns a 500.
+      description: >-
+        Returns a current user. If something goes wrong, returns a 4XX when the
+        request is an XHR request, otherwise returns a 500.
       operationId: whoami
       responses:
         '200':
@@ -141,8 +142,8 @@ components:
         user:
           oneOf:
             - allOf:
-              - $ref: 'https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml#/components/schemas/public-user'
-              - title: GitHub Public User # To override $ref, put this line below it.
+                - $ref: https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml#/components/schemas/public-user
+                - title: GitHub Public User # To override $ref, put this line below it.
         token:
           type: string
         refreshToken:
