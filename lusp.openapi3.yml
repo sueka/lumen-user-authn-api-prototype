@@ -23,6 +23,7 @@ paths:
   /users:
     get:
       description: Lists all users.
+      operationId: listUsers
       responses:
         '200':
           description: All of users
@@ -34,6 +35,7 @@ paths:
                   $ref: '#/components/schemas/user'
     post:
       description: Creates an user.
+      operationId: addUser
       responses:
         '200':
           description: A user that has been created
@@ -46,42 +48,20 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                  errors:
-                    anyOf:
-                      - type: object
-                        properties:
-                          username:
-                            type: array
-                            items:
-                              type: string
-                        required:
-                          - username
-                      - type: object
-                        properties:
-                          password:
-                            type: array
-                            items:
-                              type: string
-                        required:
-                          - password
-                required:
-                  - message
-                  - errors
+                $ref: '#/components/schemas/addUser-validation-results'
         '500':
           description: Unique violation
   /redirect-to-github:
     get:
       description: Redirects you to the GitHub authentication page.
+      operationId: redirectToGitHub
       responses:
         '302':
           description: Redirection
   /handle-github-callback:
     get:
       description: Handles a callback from GitHub.
+      operationId: handleGitHubCallback
       parameters:
         - name: code
           in: query
@@ -100,6 +80,7 @@ paths:
   /me:
     get:
       description: Returns a current user. If something goes wrong, returns a 4XX when the request is an XHR request, otherwise returns a 500.
+      operationId: whoami
       responses:
         '200':
           description: A user currently logged in
@@ -191,3 +172,29 @@ components:
       properties:
         message:
           type: string
+    addUser-validation-results:
+      type: object
+      properties:
+        message:
+          type: string
+        errors:
+          anyOf:
+            - type: object
+              properties:
+                username:
+                  type: array
+                  items:
+                    type: string
+              required:
+                - username
+            - type: object
+              properties:
+                password:
+                  type: array
+                  items:
+                    type: string
+              required:
+                - password
+      required:
+        - message
+        - errors
