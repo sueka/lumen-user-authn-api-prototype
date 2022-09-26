@@ -61,4 +61,6 @@ Then execute `systemctl restart php8.1-fpm.service`.
 
 ## License
 
-[CC0](./LICENSE) unless otherwise specified.
+[CC0](./LICENSE)
+
+The worktree to the commit d72e3a8 has been licensed under [MIT](./LICENSE.Laravel).
