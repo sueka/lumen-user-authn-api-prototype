@@ -4,7 +4,7 @@ A RESTful User Service API and its implementation.
 
 ## How-tos
 
-### Start development environment
+### Start a development environment
 
 #### Prerequisites
 
@@ -13,20 +13,20 @@ A RESTful User Service API and its implementation.
 
 ---
 
-To start a local development environment using Homestead at _https://homestead.test_, first add the following entry to your _/etc/hosts_ or _C:\Windows\System32\drivers\etc\hosts_:
+First add the following entry to your _/etc/hosts_ or _C:\Windows\System32\drivers\etc\hosts_:
 
 ```
 192.168.56.56	homestead.test
 ```
 
-Run the following commands to create _Homestead.yaml_:
+Then run the following commands to create _Homestead.yaml_:
 
 ``` sh
 composer install
 vendor/bin/homestead make --ip 192.168.56.56
 ```
 
-Then ensure _.env_ have values like:
+Then ensure _.env_ have values like
 
 ``` Shell
 APP_URL=https://homestead.test
@@ -42,7 +42,7 @@ vagrant up --provision
 
 ### Xdebug
 
-To Xdebug Lusp, run `xon` and then edit _/etc/php/8.1/cli/conf.d/20-xdebug.ini_ from `a` to `b` on your Homestead VM:
+To Xdebug Lusp, run `xon` and then edit _/etc/php/8.1/cli/conf.d/20-xdebug.ini_ on your Homestead VM as follows:
 
 ``` diff
 --- a
